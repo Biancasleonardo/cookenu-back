@@ -1,13 +1,11 @@
 GET http://localhost:3003
 
 ###
-POST http://localhost:3003/actor
+POST http://localhost:3003/users/signup
 Content-Type: application/json
 
 {
-    "name": "Emma Watson",
-    "salary": 1000000,
-    "birth_date": "1994-08-25",
-    "gender": "female",
-    "hometown": "United States"
+    "name": "Osmar Santos",
+    "email": "osmarsantos@gmail.com",
+    "password": "Bia358764"
 }

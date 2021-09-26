@@ -16,10 +16,14 @@ POST http://localhost:3003/users/login
 Content-Type: application/json
 
 {
-    "email": "biancasleonardo@gmail.com",
+    "email": "osmarsantos@gmail.com",
     "password": "Bia358764"
 }
 
 ###
 GET http://localhost:3003/users/profile
+Authorization: {{login.response.body.token}}
+
+###
+GET http://localhost:3003/users/77d7d555-50ac-4199-98fa-4fa24cb78223/profile
 Authorization: {{login.response.body.token}}

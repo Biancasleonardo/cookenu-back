@@ -9,3 +9,12 @@ Content-Type: application/json
     "email": "osmarsantos@gmail.com",
     "password": "Bia358764"
 }
+
+###
+POST http://localhost:3003/users/login
+Content-Type: application/json
+
+{
+    "email": "osmarsantos@gmail.com",
+    "password": "Bia358764"
+}

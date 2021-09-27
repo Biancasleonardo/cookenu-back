@@ -6,17 +6,13 @@ config()
 
 const { JWT_KEY } = process.env
 
-export const generateToken = (
-    payload: authenticationData
-): string => sign(
+export const generateToken = (payload: authenticationData): string => sign(
     payload,
     JWT_KEY!,
     { expiresIn: "1d" }
 )
 
-export const getTokenData = (
-    token: string
-): authenticationData | null => {
+export const getTokenData = (token: string): authenticationData | null => {
     try {
         const { id } = verify(token, JWT_KEY!) as authenticationData
 

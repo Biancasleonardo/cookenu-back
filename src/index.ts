@@ -1,5 +1,6 @@
 import app from "./app";
 import createRecipe from "./endpoints/recipes/createRecipe";
+import getRecipeById from "./endpoints/recipes/getRecipeById";
 import { getProfile } from "./endpoints/users/getProfile";
 import { getUserById } from "./endpoints/users/getUserById";
 import { login } from "./endpoints/users/login";
@@ -12,4 +13,4 @@ app.get('/users/profile', getProfile)
 app.get('/users/:id/profile', getUserById)
 
 app.post('/recipe', createRecipe)
-app.get('/recipe/:id')
+app.get('/recipe/:id', getRecipeById)

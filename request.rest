@@ -5,9 +5,9 @@ POST http://localhost:3003/users/signup
 Content-Type: application/json
 
 {
-    "name": "Osmar Santos",
-    "email": "osmarsantos@gmail.com",
-    "password": "Bia358764"
+    "name": "lala",
+    "email": "lala@gmail.com",
+    "password": "1234"
 }
 
 ###
@@ -37,3 +37,7 @@ Authorization: {{login.response.body.token}}
     "title": "Churros",
     "description": "Faça o churros"
 }
+
+###
+GET http://localhost:3003/recipe/362d03f8-f4cb-4095-bde2-6d2a6f58ae80
+Authorization: {{login.response.body.token}}

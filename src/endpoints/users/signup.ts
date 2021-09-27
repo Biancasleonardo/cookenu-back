@@ -17,6 +17,18 @@ export async function signup(
             throw new Error("Preencha corretamente todos os campos");
         }
 
+        if (password.length < 6) {
+            throw new Error("A senha precisa ser maior que 6 dígitos");
+        }
+
+        // verifica no banco se o email já existe
+        const [user] = await connection(userTableName)
+        .where({email})
+
+        if (user) {
+            throw new Error("Email já cadastrado");
+        }
+
         const id: string = generateId()
         console.log(id)
 

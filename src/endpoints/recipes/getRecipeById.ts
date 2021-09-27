@@ -11,10 +11,22 @@ export default async function getRecipeById(
 
         const token = req.headers.authorization!
 
-        getTokenData(token)
+        if (!token) {
+            throw new Error("É necessário um token");
+        }
+
+        const tokenData = getTokenData(token)
+
+        if (!tokenData) {
+            throw new Error("Credencial Inválida");
+        }
 
         const [recipe] = await connection(recipeTableName)
             .where({ id: req.params.id })
+
+            if (!recipe) {
+                throw new Error("Receita não encontrada");
+            }
 
         res.send({ 
             id: recipe.id,

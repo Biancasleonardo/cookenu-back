@@ -12,6 +12,7 @@ export const generateToken = (payload: authenticationData): string => sign(
     { expiresIn: "1d" }
 )
 
+// Verifica se o token é valido, caso sim retorna o id
 export const getTokenData = (token: string): authenticationData | null => {
     try {
         const { id } = verify(token, JWT_KEY!) as authenticationData

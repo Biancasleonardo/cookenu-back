@@ -11,9 +11,22 @@ export default async function createRecipe(
     try {
 
         const token = req.headers.authorization!
+
+        if (!token) {
+            throw new Error("É necessário um token");
+        }
+
         const {title, description} = req.body
 
+        if (!title || !description) {
+            throw new Error("É necessário preencher todos os campos");
+        }
+
         const tokenData = getTokenData(token)
+
+        if (!tokenData) {
+            throw new Error("Credencial Inválida");
+        }
 
         const id = generateId()
 

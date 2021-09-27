@@ -11,7 +11,15 @@ export async function getUserById(
 
         const token: string = req.headers.authorization!
 
-        getTokenData(token)
+        if (!token) {
+            throw new Error("É necessário um token");
+        }
+
+        const tokenData = getTokenData(token)
+
+        if (!tokenData) {
+            throw new Error("Credencial Inválida");
+        }
 
         const [user] = await connection(userTableName)
         .where({id: req.params.id})

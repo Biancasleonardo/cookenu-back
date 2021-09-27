@@ -11,11 +11,23 @@ export async function getProfile(
 
         const token: string = req.headers.authorization!
 
+        if (!token) {
+            throw new Error("É necessário um token");
+        }
+
         const tokenData = getTokenData(token)
-        console.log(tokenData)
+
+        if (!tokenData) {
+            throw new Error("Credencial Inválida");
+        }
 
         const [user] = await connection(userTableName)
         .where({id: tokenData.id})
+
+        if (!user) {
+            throw new Error("Usuário não encontrado");
+            
+        }
 
         const {id, name, email} = user
 

@@ -5,9 +5,9 @@ POST http://localhost:3003/users/signup
 Content-Type: application/json
 
 {
-    "name": "lala",
-    "email": "lala@gmail.com",
-    "password": "1234"
+    "name": "lala2",
+    "email": "biancasleonardo@gmail.com",
+    "password": "123456"
 }
 
 ###
@@ -34,8 +34,8 @@ Content-Type: application/json
 Authorization: {{login.response.body.token}}
 
 {
-    "title": "Churros",
-    "description": "Faça o churros"
+    "title": "Strogonoff",
+    "description": "Faça o Strogonoff"
 }
 
 ###

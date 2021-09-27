@@ -13,6 +13,10 @@ export async function login(
 
         const { email, password } = req.body
 
+        if (!email || !password) {
+            throw new Error("Preencha todos os campos");
+        }
+
         const [user] = await connection(userTableName)
             .where({ email })
 
